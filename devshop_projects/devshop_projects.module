@@ -219,6 +219,44 @@ function devshop_projects_menu_alter(&$items) {
   $items['node/%node/edit']['title callback'] = 'devshop_hosting_project_tab_title';
   $items['node/%node/edit']['title arguments'] = array('Edit', 1);
 
+  $items['node/%node/logs']['access callback'] = 'devshop_projects_logs_access';
+  $items['node/%node/logs']['page callback'] = 'devshop_projects_logs';
+
+
+  $items['node/%node/logs/commits']['access callback'] = 'devshop_projects_logs_access';
+  $items['node/%node/logs/commits']['page callback'] = 'devshop_projects_logs';
+
+
+  $items['node/%node/logs']['access callback'] = 'devshop_projects_logs_access';
+  $items['node/%node/logs']['page callback'] = 'devshop_projects_logs';
+
+}
+
+/**
+ * Access callback for project logs page.
+ * @param $node
+ * @return bool
+ */
+function devshop_projects_logs_access($node){
+  return $node->type == 'project';
+}
+
+/**
+ * Page callback for project logs page.
+ * @param $node
+ * @return bool
+ */
+function devshop_projects_logs($node, $environment = ''){
+  $items = array();
+  foreach ($node->environments as $env => $stuff){
+    $items[] = l($env, "node/$node->nid/logs/$env");
+  }
+  $output = theme('item_list', $items);
+
+  if ($environment && isset($node->environments[$environment]['site'])){
+    $output .= devshop_log_page($node->environments[$environment]['site']);
+  }
+  return $output;
 }
 
 /**
