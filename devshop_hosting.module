@@ -78,6 +78,7 @@ function devshop_hosting_menu_alter(&$items){
   $items['hosting/servers']['weight'] = 1;
   $items['logout']['weight'] = 2;
 
+  $items['hosting/clients']['type'] = MENU_CALLBACK;
   $items['hosting/sites']['type'] = MENU_CALLBACK;
   $items['hosting/platforms']['type'] = MENU_CALLBACK;
 }
