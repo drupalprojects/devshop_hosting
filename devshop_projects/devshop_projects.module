@@ -283,6 +283,14 @@ function devshop_projects_menu_alter(&$items) {
   $items['node/%node/edit']['title callback'] = 'devshop_hosting_project_tab_title';
   $items['node/%node/edit']['title arguments'] = array('Edit', 1);
 
+  // Set Primary links
+  $items['hosting/projects']['weight'] = 0;
+  $items['hosting/servers']['weight'] = 1;
+  $items['logout']['weight'] = 2;
+
+  $items['hosting/clients']['type'] = MENU_CALLBACK;
+  $items['hosting/sites']['type'] = MENU_CALLBACK;
+  $items['hosting/platforms']['type'] = MENU_CALLBACK;
 }
 
 /**
