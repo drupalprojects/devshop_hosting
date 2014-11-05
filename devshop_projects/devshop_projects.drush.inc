@@ -228,7 +228,7 @@ function devshop_projects_post_hosting_devshop_deploy_task($task, $data) {
     return drush_set_error('[DEVSHOP] Environment update failed!');
   }
 
-  hosting_add_task($task->ref->environments[$environment]->platform, 'verify');
+  hosting_add_task($task->ref->project->environments[$environment]->platform, 'verify');
 }
 
 /**
