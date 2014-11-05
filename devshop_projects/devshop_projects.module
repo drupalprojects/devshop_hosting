@@ -98,7 +98,7 @@ function devshop_projects_menu() {
     'page callback' => 'devshop_projects_projects_page',
     'access arguments' => array('view projects'),
     'menu_name' => 'primary-links',
-    'weight' => 1,
+    'weight' => -10,
   );
   $items['hosting/projects/list'] = array(
     'title' => t('All Projects'),
