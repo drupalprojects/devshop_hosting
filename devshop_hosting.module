@@ -72,6 +72,14 @@ function devshop_hosting_menu_alter(&$items){
   );
 
   $items['node/%hosting_site_node/goto_site']['page callback'] = 'devshop_hosting_site_goto';
+
+  // Set Primary links
+  $items['hosting/projects']['weight'] = 0;
+  $items['hosting/servers']['weight'] = 1;
+  $items['logout']['weight'] = 2;
+
+  $items['hosting/sites']['type'] = MENU_CALLBACK;
+  $items['hosting/platforms']['type'] = MENU_CALLBACK;
 }
 
 /**
