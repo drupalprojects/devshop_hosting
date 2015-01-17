@@ -16,6 +16,7 @@ function devshop_projects_hosting_tasks() {
     'access callback' => 'devshop_hosting_task_menu_access',
     'hidden' => TRUE,
   );
+  // @TOOD: Remove from tasks. This can be a normal form.
   $tasks['project']['devshop-create'] = array(
     'title' => t('Create New Environment'),
     'description' => t('Creates a new environment within this project.'),
@@ -26,6 +27,13 @@ function devshop_projects_hosting_tasks() {
   $tasks['project']['devshop-commit'] = array(
     'title' => t('Commit Features'),
     'description' => t('Recreates all Features and commits the result.'),
+    'access callback' => 'devshop_hosting_task_menu_access',
+    'dialog' => TRUE,
+  );
+  // @TODO: Move to hosting_git.module.
+  $tasks['site']['commit'] = array(
+    'title' => t('Commit Code'),
+    'description' => t("Commits changes to the site's codebase to git."),
     'access callback' => 'devshop_hosting_task_menu_access',
     'dialog' => TRUE,
   );
